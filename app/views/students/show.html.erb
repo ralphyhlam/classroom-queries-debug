@@ -103,11 +103,11 @@
 <ul>
   <% enrollments = Enrollment.where({ :student_id => @student.id }) %>
   <% enrollments.each do |enrollment| %>
-    <% course = course.where({ :id => enrollment.course_id }) %>
+    <% course = Course.where({ :id => enrollment.course_id }) %>
     <% found_course = course.at(0)%>
     <li>
-      <a href="/courses/<%= course.id %>">
-        <%= course.title %>
+      <a href="/courses/<%= found_course.id %>">
+        <%= found_course.title %>
       </a>
     </li>
   <% end %>
